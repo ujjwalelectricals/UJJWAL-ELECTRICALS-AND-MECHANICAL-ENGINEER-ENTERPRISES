@@ -1,3 +1,0 @@
-export type Product={id:string;sku:string;name:string;slug:string;category:string;brand:string;description:string;featured?:boolean;stockStatus:"In stock"|"Made to order"|"Enquire";imageLabel:string;specs:Record<string,string>};
-export type EnquiryItem={productId:string;quantity:number;notes?:string};
-export type EnquiryPayload={name:string;company:string;email:string;phone:string;city?:string;message?:string;items:EnquiryItem[]};
