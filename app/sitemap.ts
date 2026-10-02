@@ -1,0 +1,1 @@
+import type{MetadataRoute}from"next";import{services}from"@/lib/data";export default function sitemap():MetadataRoute.Sitemap{const b=process.env.NEXT_PUBLIC_SITE_URL||"http://localhost:3000";return["","/services","/contact",...services.map(s=>"/services/"+s[0])].map((x,i)=>({url:b+x,lastModified:new Date(),priority:i===0?1:.7}))}
