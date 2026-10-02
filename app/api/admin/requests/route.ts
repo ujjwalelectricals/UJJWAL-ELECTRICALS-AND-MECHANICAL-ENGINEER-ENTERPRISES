@@ -29,7 +29,7 @@ export async function GET() {
 
     return {
       ...row,
-      photo_urls: (signed.data || []).map((item: { signedUrl?: string }) => item.signedUrl).filter(Boolean)
+      photo_urls: (signed.data || []).map((item) => item.signedUrl || undefined).filter(Boolean)
     };
   }));
 
