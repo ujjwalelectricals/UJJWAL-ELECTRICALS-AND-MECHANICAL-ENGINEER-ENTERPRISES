@@ -19,9 +19,27 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: site.name,
+    telephone: ["+91" + site.phone, "+91" + site.altPhone],
+    email: site.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Sector-9, H.No. 2313, Block-51, Siddharth Vihar",
+      addressLocality: "Ghaziabad",
+      addressRegion: "Uttar Pradesh",
+      postalCode: "201009",
+      addressCountry: "IN"
+    },
+    areaServed: ["Ghaziabad", "Delhi NCR"]
+  };
+
   return (
     <html lang="en">
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
         <header>
           <div className="wrap nav">
             <a href="/" className="brand"><b>UE</b><span>UJJWAL ELECTRICALS</span></a>
